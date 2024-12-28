@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en,th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Year Greeting Card</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .text-bottom-center {
+      position: absolute; /* ใช้ตำแหน่งแบบ absolute */
+      bottom: 20px; /* ระยะจากด้านล่าง */
+      right: 130px; /* ระยะจากด้านขวา */
+      font-size: 12px; /* ขนาดตัวอักษร */
+      color: #555; /* สีตัวอักษร */
+      background: rgba(0, 0, 0, 0.1); /* พื้นหลังโปร่งใส */
+      padding: 5px 10px; /* ระยะขอบด้านใน */
+      border-radius: 10px; /* มุมโค้ง */
+    }
+  </style>
+</head>
+<body>
+  <div class="card" onclick="changeMessage()">
+    <div class="sparkle">🌺</div>
+    <div class="title">To. Namtan</div>
+    <div class="message" id="message">
+      <h1>Happy New Year 2025!</h1>
+      <p> Here's to celebrating good times. This New Year card is for u!</p>
+      <p2 class="typing">I'm so glad I met you</p2>
+    <div class="text-bottom-center">pls click on the card</div>
+    </div>
+    <div class="footer">
+    </div>
+  <div class="flower">
+      <div class="glow-effect"></div>
+    </div>
+  </div>
+  <div class="fireworks"></div>
+  <script src="script.js"></script>
+</body>
+</html>

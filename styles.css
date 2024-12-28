@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f2c7ff; /* พื้นหลังสีอ่อน */
+    font-family: 'Poppins', sans-serif;
+    margin: 0; /* รีเซ็ตขอบนอกของหน้าเว็บ */
+    padding: 0; /* รีเซ็ตระยะห่างภายใน */
+    display: flex; /* ใช้ Flexbox */
+    justify-content: center; /* จัดให้อยู่กลางแนวนอน */
+    align-items: center; /* จัดให้อยู่กลางแนวตั้ง */
+    height: 100vh;
+    overflow: hidden;
+  }
+  .card-wrapper {
+    text-align: center;
+  }
+  
+  .card {
+    background-color: #fefff1;
+    width: 400px;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    transform: scale(1,1);
+    transform-style: preserve-3d;
+    transition: transform 1s ease-out;
+    
+  }
+  .card.open {
+    transform: rotateY(0deg); /* เมื่อเปิดการ์ด */
+  }
+  .fireworks {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgb(253, 255, 138), transparent);
+    animation: firework 2s infinite ease-in-out;
+    left: 80%;
+    top: 100%;
+    z-index: -10; 
+  }
+
+  .message h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #be6363; /* สีเข้มแบบหรู */
+    margin-bottom: 20px;
+  }
+  
+  .message p {
+    font-size: 1.2rem;
+    color: #44403d;
+    margin-top: 10px;
+  }
+  .message p2 {
+    font-size: 1.2rem;
+    color: #9467c7;
+    margin-top: 30px;
+  }
+  .message p3 {
+    font-size: 1rem;
+    color: #3a9651;
+    margin-top: 10px;
+  }
+  .message p4 {
+    font-size: 1rem;
+    color: hsl(0, 0%, 17%);
+    margin-top: 20px;
+  }
+  /* อิโมจิเมฆตกแต่งรอบการ์ด */
+.card::before,
+.card::after {
+    content: '🌥️';
+    position: absolute;
+    font-size: 1.5em;
+    color: #e4b6ff;
+    animation: floatClouds 5s infinite ease-in-out;
+}
+
+.card::before {
+    top: 30px;
+    left: 30px;
+}
+
+.card::after {
+    top: 30px;
+    right: 30px;
+}
+/* การเคลื่อนไหวของอิโมจิเมฆ */
+@keyframes floatClouds {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+  .sparkle {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    font-size: 60px;
+    Top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: flower-animation 3s ease-in-out infinite;
+    animation: sparkle 2s infinite;
+  }
+
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes firework {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-500px); /* ลอยขึ้นไปข้างบน */
+    opacity: 0;
+  }
+}
+
+.particle {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ff6347, transparent);
+  border-radius: 50%;
+  position: absolute;
+  animation: none; /* รอให้แอนิเมชันถูกกำหนดใน JS */
+  transform-origin: center;
+}
+
+/* แอนิเมชันสำหรับอนุภาคพลุ */
+@keyframes particle-animation {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -100px) scale(0.5); /* กระจายและเล็กลง */
+  }
+}
+.typing {
+  display: inline-block; /* เพื่อให้ข้อความถูกควบคุม width */
+  white-space: nowrap; /* ป้องกันการตัดข้อความ */
+  overflow: hidden; /* ซ่อนข้อความที่อยู่นอกขอบ */
+  border-right: 2px solid rgb(255, 255, 255); /* เคอร์เซอร์ */
+  animation: typing 4s steps(30, end), blink-caret 0.5s step-end infinite;
+}
+
+/* การพิมพ์ทีละตัว */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
